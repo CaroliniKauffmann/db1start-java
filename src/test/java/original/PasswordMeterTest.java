@@ -2,27 +2,27 @@ package original;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class PasswordMeterV1Test {
+class PasswordMeterTest {
 
-    private PasswordMeterV1 passwordMeterV1;
+    private PasswordMeter passwordMeter;
 
     @org.junit.jupiter.api.BeforeEach
     void setUp() {
-        passwordMeterV1 = new PasswordMeterV1();
+        passwordMeter = new PasswordMeter();
     }
 
 
     @org.junit.jupiter.api.Test
     void checkPasswordStrong() {
         String senhaForte = "!@#rtyA1265";
-        passwordMeterV1.checkPassword(senhaForte);
-        assertEquals("Very Strong", passwordMeterV1.sComplexity);
+        passwordMeter.checkPassword(senhaForte);
+        assertEquals("Very Strong", passwordMeter.sComplexity);
     }
 
     @org.junit.jupiter.api.Test
     void checkPasswordWeak() {
         String senhaFraca = "12345";
-        passwordMeterV1.checkPassword(senhaFraca);
-        assertEquals("Very Weak", passwordMeterV1.sComplexity);
+        passwordMeter.checkPassword(senhaFraca);
+        assertEquals("Very Weak", passwordMeter.sComplexity);
     }
 }
