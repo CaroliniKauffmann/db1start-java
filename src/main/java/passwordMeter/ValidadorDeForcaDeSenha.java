@@ -8,6 +8,8 @@ import java.util.List;
 
 public class ValidadorDeForcaDeSenha {
 
+    List<Verificador> verificadores = new ArrayList<Verificador>();
+
     public long getForcaDaSenha() {
         return forcaDaSenha;
     }
@@ -20,7 +22,6 @@ public class ValidadorDeForcaDeSenha {
     }
 
     void verificar(){
-        List<Verificador> verificadores = new ArrayList<Verificador>();
 
         //Incrementadores
         verificadores.add(new VerificadorDeQuantidadeDeCaracteres(senha));
