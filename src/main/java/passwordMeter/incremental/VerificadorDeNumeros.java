@@ -14,6 +14,10 @@ public class VerificadorDeNumeros extends Verificador {
 
     @Override
     public void verificar() {
+        if (scoreFoiCalculado()) {
+            return;
+        }
+
         long count = obterContagem();
         score = count * 4;
     }

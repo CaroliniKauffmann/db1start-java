@@ -11,6 +11,9 @@ public class VerficadorDeSequenciasDeSimbolos extends Verificador {
 
     @Override
     public void verificar() {
+        if (scoreFoiCalculado()) {
+            return;
+        }
         score = obterContagem() * 3;
 
     }
@@ -18,18 +21,18 @@ public class VerficadorDeSequenciasDeSimbolos extends Verificador {
     @Override
     public long obterContagem() {
 
-        int countSeqSymbol = 0;
+        int contadorSequenciaDeSimbolos = 0;
 
         for (int i = 0; i < 8; i++) {
-            String SYMBOLS = ")!@#$%^&*()";
-            String sFwd = SYMBOLS.substring(i, i + 3);
+            String SIMBOLOS = ")!@#$%^&*()";
+            String sFwd = SIMBOLOS.substring(i, i + 3);
             String sRev = new StringBuilder(sFwd).reverse().toString();
             if (senha.toLowerCase().contains(sFwd) || senha.toLowerCase().contains(sRev)) {
 
-                countSeqSymbol++;
+                contadorSequenciaDeSimbolos++;
             }
         }
-        return countSeqSymbol;
+        return contadorSequenciaDeSimbolos;
     }
 
     @Override

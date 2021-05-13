@@ -11,6 +11,9 @@ public class VerficadorDeSequenciasDeNumeros extends Verificador {
 
     @Override
     public void verificar() {
+        if (scoreFoiCalculado()) {
+            return;
+        }
         score = obterContagem() * 3;
 
     }
@@ -18,18 +21,18 @@ public class VerficadorDeSequenciasDeNumeros extends Verificador {
     @Override
     public long obterContagem() {
 
-        int countSeqNumber = 0;
+        int contadorSequenciaDeNumeros = 0;
 
         for (int i = 0; i < 8; i++) {
-            String DIGITS = "01234567890";
-            String sFwd = DIGITS.substring(i, i + 3);
+            String NUMEROS = "01234567890";
+            String sFwd = NUMEROS.substring(i, i + 3);
             String sRev = new StringBuilder(sFwd).reverse().toString();
             if (senha.toLowerCase().contains(sFwd) || senha.toLowerCase().contains(sRev)) {
 
-                countSeqNumber++;
+                contadorSequenciaDeNumeros++;
             }
         }
-        return countSeqNumber;
+        return contadorSequenciaDeNumeros;
     }
 
     @Override

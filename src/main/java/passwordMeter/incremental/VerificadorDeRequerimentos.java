@@ -17,6 +17,9 @@ public class VerificadorDeRequerimentos extends Verificador {
 
     @Override
     public void verificar() {
+        if (scoreFoiCalculado()) {
+            return;
+        }
 
         verificadores.add(new VerificadorDeMaiusculas(senha));
         verificadores.add(new VerificadorDeMinusculas(senha));

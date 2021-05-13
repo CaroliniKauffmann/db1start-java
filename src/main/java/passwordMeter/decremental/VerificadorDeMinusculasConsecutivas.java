@@ -11,13 +11,16 @@ public class VerificadorDeMinusculasConsecutivas extends Verificador {
 
     @Override
     public void verificar() {
+        if (scoreFoiCalculado()) {
+            return;
+        }
         score = obterContagem() * 2;
     }
 
     @Override
     public long obterContagem() {
 
-        int countConsecutiveLowercaseLetters = 0;
+        int contadorDeMinusculasConsecutivas = 0;
         Integer nTmpAlphaLC = null;
 
         String[] arrPwd = senha.replaceAll("\\s+", "").split("\\s*");
@@ -27,13 +30,13 @@ public class VerificadorDeMinusculasConsecutivas extends Verificador {
 
                 if (nTmpAlphaLC != null) {
                     if (nTmpAlphaLC + 1 == i) {
-                        countConsecutiveLowercaseLetters++;
+                        contadorDeMinusculasConsecutivas++;
                     }
                 }
                 nTmpAlphaLC = i;
             }
         }
-        return countConsecutiveLowercaseLetters;
+        return contadorDeMinusculasConsecutivas;
     }
 
     @Override

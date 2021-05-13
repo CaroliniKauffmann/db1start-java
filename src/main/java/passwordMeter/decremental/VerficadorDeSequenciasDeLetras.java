@@ -11,25 +11,28 @@ public class VerficadorDeSequenciasDeLetras extends Verificador {
 
     @Override
     public void verificar() {
+        if (scoreFoiCalculado()) {
+            return;
+        }
         score = obterContagem() * 3;
     }
 
     @Override
     public long obterContagem() {
 
-        int countSeqAlpha = 0;
+        int contadorSequenciaDeLetras = 0;
 
         /* Check for sequential alpha string patterns (forward and reverse) */
         for (int i = 0; i < 23; i++) {
-            String ALPHAS = "abcdefghijklmnopqrstuvwxyz";
-            String sFwd = ALPHAS.substring(i, i + 3);
+            String LETRAS = "abcdefghijklmnopqrstuvwxyz";
+            String sFwd = LETRAS.substring(i, i + 3);
             String sRev = new StringBuilder(sFwd).reverse().toString();
             if (senha.toLowerCase().contains(sFwd) || senha.toLowerCase().contains(sRev)) {
 
-                countSeqAlpha++;
+                contadorSequenciaDeLetras++;
             }
         }
-        return countSeqAlpha;
+        return contadorSequenciaDeLetras;
     }
 
     @Override

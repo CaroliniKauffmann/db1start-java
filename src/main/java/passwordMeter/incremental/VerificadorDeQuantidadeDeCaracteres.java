@@ -11,6 +11,9 @@ public class VerificadorDeQuantidadeDeCaracteres extends Verificador {
 
     @Override
     public void verificar() {
+        if (scoreFoiCalculado()) {
+            return;
+        }
         score = obterContagem() * 4;
     }
 

@@ -14,13 +14,16 @@ public class VerificadorSomenteLetras extends Verificador {
 
     @Override
     public void verificar() {
+        if (scoreFoiCalculado()) {
+            return;
+        }
         score = obterContagem();
     }
 
     @Override
     public long obterContagem() {
-        String regexNumerosESimbolos = "([^A-Za-z])";
-        Pattern padrao = Pattern.compile(regexNumerosESimbolos);
+        String regexLetras = "([^A-Za-z])";
+        Pattern padrao = Pattern.compile(regexLetras);
         Matcher comparador = padrao.matcher(senha);
         long count = comparador.results().count();
 

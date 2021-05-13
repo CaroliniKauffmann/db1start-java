@@ -12,13 +12,16 @@ public class VerificadorDeNumerosConsecutivos extends Verificador {
 
     @Override
     public void verificar() {
+        if (scoreFoiCalculado()) {
+            return;
+        }
         score = obterContagem() * 2;
     }
 
     @Override
     public long obterContagem() {
 
-        int countConsecutiveLowercaseLetters = 0;
+        int contadorDeNumerosConsecutivos = 0;
         Integer nTmpAlphaLC = null;
 
         String[] arrPwd = senha.replaceAll("\\s+", "").split("\\s*");
@@ -28,13 +31,13 @@ public class VerificadorDeNumerosConsecutivos extends Verificador {
 
                 if (nTmpAlphaLC != null) {
                     if (nTmpAlphaLC + 1 == i) {
-                        countConsecutiveLowercaseLetters++;
+                        contadorDeNumerosConsecutivos++;
                     }
                 }
                 nTmpAlphaLC = i;
             }
         }
-        return countConsecutiveLowercaseLetters;
+        return contadorDeNumerosConsecutivos;
     }
 
     @Override

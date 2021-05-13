@@ -14,6 +14,9 @@ public class VerificadorDeMaiusculas extends Verificador {
 
     @Override
     public void verificar() {
+        if (scoreFoiCalculado()) {
+            return;
+        }
 
         long count = obterContagem();
         score = (senha.length() - count) * 2;

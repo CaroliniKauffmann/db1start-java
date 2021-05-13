@@ -14,6 +14,9 @@ public class VerificadorDeSimbolos extends Verificador {
 
     @Override
     public void verificar() {
+        if (scoreFoiCalculado()) {
+            return;
+        }
         long count = obterContagem();
         score = count * 6;
     }

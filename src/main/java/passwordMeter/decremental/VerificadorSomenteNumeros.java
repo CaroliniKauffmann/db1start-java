@@ -14,6 +14,9 @@ public class VerificadorSomenteNumeros extends Verificador {
 
     @Override
     public void verificar() {
+        if (scoreFoiCalculado()) {
+            return;
+        }
         score = obterContagem();
     }
 

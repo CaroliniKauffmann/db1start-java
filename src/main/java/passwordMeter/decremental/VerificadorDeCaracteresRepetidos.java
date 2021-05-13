@@ -11,18 +11,21 @@ public class VerificadorDeCaracteresRepetidos extends Verificador {
 
     @Override
     public void verificar() {
+        if (scoreFoiCalculado()) {
+            return;
+        }
         score = obterContagem();
     }
 
     @Override
     public long obterContagem() {
 
-        int countConsecutiveAlphaUC = 0;
+        int contadorDeMaiusculasConsecutivas = 0;
         int countAlphaUC = 0;
-        int countConsecutiveAlphaLC = 0;
+        int contadorDeMinusculasConsecutivas = 0;
         int countAlphaLC = 0;
         int countMidChar = 0;
-        int countConsecutiveNumber = 0;
+        int contadoDeNumerosConsecutivos = 0;
         int countNumber = 0;
         int countSymbol = 0;
         int incrementDeductionOfRepeatedChars = 0;
@@ -37,7 +40,7 @@ public class VerificadorDeCaracteresRepetidos extends Verificador {
             if (arrPwd[i].matches("[A-Z]")) {
                 if (nTmpAlphaUC != null) {
                     if (nTmpAlphaUC + 1 == i) {
-                        countConsecutiveAlphaUC++;
+                        contadorDeMaiusculasConsecutivas++;
                     }
                 }
                 nTmpAlphaUC = i;
@@ -45,7 +48,7 @@ public class VerificadorDeCaracteresRepetidos extends Verificador {
             } else if (arrPwd[i].matches("[a-z]")) {
                 if (nTmpAlphaLC != null) {
                     if (nTmpAlphaLC + 1 == i) {
-                        countConsecutiveAlphaLC++;
+                        contadorDeMinusculasConsecutivas++;
                     }
                 }
                 nTmpAlphaLC = i;
@@ -57,7 +60,7 @@ public class VerificadorDeCaracteresRepetidos extends Verificador {
                 }
                 if (nTmpNumber != null) {
                     if (nTmpNumber + 1 == i) {
-                        countConsecutiveNumber++;
+                        contadoDeNumerosConsecutivos++;
                     }
                 }
                 nTmpNumber = i;
