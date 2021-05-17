@@ -11,15 +11,15 @@ class ValidadorDeForcaDeSenhaTest {
 
     @BeforeEach
     void setUp() {
-        validadorDeForcaDeSenha = new ValidadorDeForcaDeSenha("Ca$b239");
+        validadorDeForcaDeSenha = new ValidadorDeForcaDeSenha("Ca$0b239");
     }
 
     @Test
     void verificar() {
         validadorDeForcaDeSenha.verificar();
-        assertEquals(72, validadorDeForcaDeSenha.getForcaDaSenha());
-        assertEquals(Complexidade.FORTE, validadorDeForcaDeSenha.obterComplexidade());
-        assertTrue(!validadorDeForcaDeSenha.atendeRequisitos());
+        assertEquals(86, validadorDeForcaDeSenha.getForcaDaSenha());
+        assertEquals(Complexidade.MUITO_FORTE, validadorDeForcaDeSenha.obterComplexidade());
+        assertTrue(validadorDeForcaDeSenha.atendeRequisitos());
 
     }
 

@@ -19,6 +19,11 @@ public abstract class Verificador {
 
     public abstract ResultadoDeAnalise obterResultadoDeAnalise();
 
+    public boolean atendeRequisitos(){
+        return obterTipoRequisito() == TipoRequisito.REQUERIDO
+                && obterResultadoDeAnalise().getSuficiencia() != Suficiencia.FALHA;
+    }
+
 }
 
 

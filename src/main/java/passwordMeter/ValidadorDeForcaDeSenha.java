@@ -75,10 +75,9 @@ public class ValidadorDeForcaDeSenha {
         Verificador verificadorQuantidade = new VerificadorDeQuantidadeDeCaracteres(senha);
         verificadorQuantidade.verificar();
 
-        return verificadorQuantidade.obterContagem() >= 8 && verificadores
+        return verificadorQuantidade.atendeRequisitos() && verificadores
             .stream()
-            .filter(verificador -> verificador.obterTipoRequisito() == TipoRequisito.REQUERIDO)
-            .filter(verificador -> verificador.obterResultadoDeAnalise().getSuficiencia() != Suficiencia.FALHA)
+            .filter(verificador -> verificador.atendeRequisitos())
             .count() > 3;
     }
 }

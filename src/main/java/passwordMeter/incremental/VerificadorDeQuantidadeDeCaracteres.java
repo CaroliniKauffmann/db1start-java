@@ -22,16 +22,17 @@ public class VerificadorDeQuantidadeDeCaracteres extends Verificador {
 
     public ResultadoDeAnalise obterResultadoDeAnalise() {
 
-        Faixa faixa1 = Faixa.of(0, 8, Suficiencia.FALHA);
+        Faixa faixa1 = Faixa.of(0, 7, Suficiencia.FALHA);
         Faixa faixa2 = Faixa.of(8, 8, Suficiencia.SUFICIENTE);
         Faixa faixa3 = Faixa.superiorOf(9, Suficiencia.EXCELENTE);
 
         CalculadorDeSuficiencia calculadorDeSuficiencia = new CalculadorDeSuficiencia();
 
+        int contagem = (int) obterContagem();
         return new ResultadoDeAnalise(
                 (int) obterContagem(),
                 score.intValue(),
-                calculadorDeSuficiencia.calcular(score.intValue(), faixa1, faixa2, faixa3),
+                calculadorDeSuficiencia.calcular((int) obterContagem(), faixa1, faixa2, faixa3),
                 obterTipoDeOperacao(),
                 TipoRequisito.REQUERIDO);
     }
@@ -42,6 +43,6 @@ public class VerificadorDeQuantidadeDeCaracteres extends Verificador {
     }
 
     public TipoRequisito obterTipoRequisito(){
-        return TipoRequisito.NAO_REQUERIDO;
+        return TipoRequisito.REQUERIDO;
     }
 }
