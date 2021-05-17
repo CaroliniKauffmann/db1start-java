@@ -16,7 +16,7 @@ public abstract class Verificador {
         return score != null;
     }
 
-    //public abstract ResultadoDeAnalise obterResultadoDeAnalise();
+    public abstract ResultadoDeAnalise obterResultadoDeAnalise();
 
 }
 

@@ -1,7 +1,6 @@
 package passwordMeter.incremental;
 
-import passwordMeter.TipoDeOperacao;
-import passwordMeter.Verificador;
+import passwordMeter.*;
 
 public class VerificadorDeQuantidadeDeCaracteres extends Verificador {
 
@@ -19,6 +18,22 @@ public class VerificadorDeQuantidadeDeCaracteres extends Verificador {
 
     public long obterContagem() {
         return senha.length();
+    }
+
+    public ResultadoDeAnalise obterResultadoDeAnalise() {
+
+        Faixa faixa1 = Faixa.of(0, 8, Suficiencia.FALHA);
+        Faixa faixa2 = Faixa.of(8, 8, Suficiencia.SUFICIENTE);
+        Faixa faixa3 = Faixa.superiorOf(9, Suficiencia.EXCELENTE);
+
+        CalculadorDeSuficiencia calculadorDeSuficiencia = new CalculadorDeSuficiencia();
+
+        return new ResultadoDeAnalise(
+                (int) obterContagem(),
+                score.intValue(),
+                calculadorDeSuficiencia.calcular(score.intValue(), faixa1, faixa2, faixa3),
+                obterTipoDeOperacao(),
+                TipoRequisito.REQUERIDO);
     }
 
     @Override

@@ -1,7 +1,6 @@
 package passwordMeter.decremental;
 
-import passwordMeter.TipoDeOperacao;
-import passwordMeter.Verificador;
+import passwordMeter.*;
 
 public class VerficadorDeSequenciasDeSimbolos extends Verificador {
 
@@ -33,6 +32,21 @@ public class VerficadorDeSequenciasDeSimbolos extends Verificador {
             }
         }
         return contadorSequenciaDeSimbolos;
+    }
+
+    public ResultadoDeAnalise obterResultadoDeAnalise() {
+
+        Faixa faixa1 = Faixa.superiorOf(1, Suficiencia.FALHA);
+        Faixa faixa2 = Faixa.inferiorOf(0, Suficiencia.SUFICIENTE);
+
+        CalculadorDeSuficiencia calculadorDeSuficiencia = new CalculadorDeSuficiencia();
+
+        return new ResultadoDeAnalise(
+                (int) obterContagem(),
+                score.intValue(),
+                calculadorDeSuficiencia.calcular(score.intValue(), faixa1, faixa2),
+                obterTipoDeOperacao(),
+                TipoRequisito.REQUERIDO);
     }
 
     @Override
