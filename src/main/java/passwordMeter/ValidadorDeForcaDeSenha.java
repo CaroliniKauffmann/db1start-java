@@ -54,9 +54,12 @@ public class ValidadorDeForcaDeSenha {
                 .reduce(0, (subtotal, element) -> subtotal + element);
     }
 
-    String obterComplexidade(){
-        Complexidade complexidade = Complexidade.obterComplexidade(forcaDaSenha);
-        switch (complexidade) {
+    public Complexidade obterComplexidade(){
+        return Complexidade.obterComplexidade(forcaDaSenha);
+    }
+
+    String obterTituloComplexidade(){
+        switch (obterComplexidade()) {
             case MUITO_FRACO: return "Muito Fraco";
             case FRACO: return "Fraco";
             case BOM: return "Bom";

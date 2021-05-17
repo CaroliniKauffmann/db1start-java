@@ -2,6 +2,7 @@ package passwordMeter.incremental;
 
 import org.junit.jupiter.api.Test;
 import passwordMeter.ResultadoDeAnalise;
+import passwordMeter.Suficiencia;
 import passwordMeter.Verificador;
 import passwordMeter.incremental.VerificadorDeMaiusculas;
 
@@ -21,5 +22,6 @@ class VerificadorDeMaiusculasTest {
         verificador.verificar();
         ResultadoDeAnalise resultadoDeAnalise = verificador.obterResultadoDeAnalise();
         assertEquals(14, resultadoDeAnalise.getPontos());
+        assertEquals(Suficiencia.SUFICIENTE, resultadoDeAnalise.getSuficiencia());
     }
 }

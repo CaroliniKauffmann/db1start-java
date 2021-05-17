@@ -1,6 +1,8 @@
 package passwordMeter.incremental;
 
 import org.junit.jupiter.api.Test;
+import passwordMeter.ResultadoDeAnalise;
+import passwordMeter.Suficiencia;
 import passwordMeter.Verificador;
 import passwordMeter.incremental.VerificadorDeSimbolos;
 
@@ -18,6 +20,8 @@ class VerificadorDeSimbolosTest {
     @Test
     void verificar() {
         verificador.verificar();
-        assertEquals(12, verificador.score);
+        ResultadoDeAnalise resultadoDeAnalise = verificador.obterResultadoDeAnalise();
+        assertEquals(12, resultadoDeAnalise.getPontos());
+        assertEquals(Suficiencia.SUFICIENTE, resultadoDeAnalise.getSuficiencia());
     }
 }

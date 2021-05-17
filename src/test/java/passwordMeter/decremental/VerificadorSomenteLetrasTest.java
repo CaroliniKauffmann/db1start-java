@@ -1,7 +1,10 @@
 package passwordMeter.decremental;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import passwordMeter.ResultadoDeAnalise;
+import passwordMeter.Suficiencia;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -18,6 +21,8 @@ class VerificadorSomenteLetrasTest {
     @Test
     void verificar() {
         verificadorSomenteLetras.verificar();
-        assertEquals(Long.valueOf(0), verificadorSomenteLetras.score);
+        ResultadoDeAnalise resultadoDeAnalise = verificadorSomenteLetras.obterResultadoDeAnalise();
+        Assertions.assertEquals(0, resultadoDeAnalise.getPontos());
+        Assertions.assertEquals(Suficiencia.SUFICIENTE, resultadoDeAnalise.getSuficiencia());
     }
 }

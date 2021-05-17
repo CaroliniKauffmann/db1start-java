@@ -1,7 +1,10 @@
 package passwordMeter.decremental;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import passwordMeter.ResultadoDeAnalise;
+import passwordMeter.Suficiencia;
 
 import static org.junit.Assert.assertEquals;
 
@@ -19,7 +22,9 @@ class VerificadorDeMaiusculasConsecutivasTest {
     @Test
     void verificar() {
         verificadorDeMaiusculasConsecutivas.verificar();
-        assertEquals(Long.valueOf(6), verificadorDeMaiusculasConsecutivas.score);
+        ResultadoDeAnalise resultadoDeAnalise = verificadorDeMaiusculasConsecutivas.obterResultadoDeAnalise();
+        Assertions.assertEquals(6, resultadoDeAnalise.getPontos());
+        Assertions.assertEquals(Suficiencia.FALHA, resultadoDeAnalise.getSuficiencia());
     }
 
 }

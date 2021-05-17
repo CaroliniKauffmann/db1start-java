@@ -17,7 +17,8 @@ class ValidadorDeForcaDeSenhaTest {
     @Test
     void verificar() {
         validadorDeForcaDeSenha.verificar();
-        assertEquals(56, validadorDeForcaDeSenha.getForcaDaSenha());
+        assertEquals(60, validadorDeForcaDeSenha.getForcaDaSenha());
+        assertEquals(Complexidade.FORTE, validadorDeForcaDeSenha.obterComplexidade());
 
     }
 

@@ -2,6 +2,8 @@ package passwordMeter.incremental;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import passwordMeter.ResultadoDeAnalise;
+import passwordMeter.Suficiencia;
 import passwordMeter.incremental.VerificadorDeRequerimentos;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -19,7 +21,9 @@ class VerificadorDeRequerimentosTest {
     @Test
     void verificar() {
         verificadorDeRequerimentos.verificar();
-        assertEquals(10, verificadorDeRequerimentos.score);
+        ResultadoDeAnalise resultadoDeAnalise = verificadorDeRequerimentos.obterResultadoDeAnalise();
+        assertEquals(10, resultadoDeAnalise.getPontos());
+        assertEquals(Suficiencia.SUFICIENTE, resultadoDeAnalise.getSuficiencia());
     }
 
 

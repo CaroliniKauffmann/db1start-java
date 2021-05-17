@@ -1,6 +1,8 @@
 package passwordMeter.incremental;
 
 import org.junit.jupiter.api.Test;
+import passwordMeter.ResultadoDeAnalise;
+import passwordMeter.Suficiencia;
 import passwordMeter.Verificador;
 import passwordMeter.incremental.VerificadorDeQuantidadeDeCaracteres;
 
@@ -25,6 +27,8 @@ class VerificadorDeQuantidadeDeCaracteresTest {
     void verificarSenhaMenor() {
         verificador.senha = "abcdeh";
         verificador.verificar();
-        assertEquals(24, verificador.score);
+        ResultadoDeAnalise resultadoDeAnalise = verificador.obterResultadoDeAnalise();
+        assertEquals(24, resultadoDeAnalise.getPontos());
+        assertEquals(Suficiencia.SUFICIENTE, resultadoDeAnalise.getSuficiencia());
     }
 }
