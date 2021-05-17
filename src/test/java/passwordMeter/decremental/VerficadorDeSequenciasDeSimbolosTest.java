@@ -19,6 +19,6 @@ class VerficadorDeSequenciasDeSimbolosTest {
     @Test
     void verificar() {
         verficadorDeSequenciasDeSimbolos.verificar();
-        assertEquals(6, verficadorDeSequenciasDeSimbolos.score);
+        assertEquals(Long.valueOf(6), verficadorDeSequenciasDeSimbolos.score);
     }
 }

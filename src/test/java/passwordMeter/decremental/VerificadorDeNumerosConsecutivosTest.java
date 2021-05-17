@@ -20,6 +20,6 @@ class VerificadorDeNumerosConsecutivosTest {
     @Test
     void verificar() {
         verificadorDeNumerosConsecutivos.verificar();
-        assertEquals(4, verificadorDeNumerosConsecutivos.score);
+        assertEquals(Long.valueOf(4), verificadorDeNumerosConsecutivos.score);
     }
 }

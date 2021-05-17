@@ -19,7 +19,7 @@ class VerificadorDeMaiusculasConsecutivasTest {
     @Test
     void verificar() {
         verificadorDeMaiusculasConsecutivas.verificar();
-        assertEquals(6, verificadorDeMaiusculasConsecutivas.score);
+        assertEquals(Long.valueOf(6), verificadorDeMaiusculasConsecutivas.score);
     }
 
 }

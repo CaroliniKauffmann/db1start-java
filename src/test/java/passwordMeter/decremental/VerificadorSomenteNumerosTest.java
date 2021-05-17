@@ -18,6 +18,6 @@ class VerificadorSomenteNumerosTest {
     @Test
     void verificar() {
         verificadorSomenteNumeros.verificar();
-        assertEquals(8, verificadorSomenteNumeros.score);
+        assertEquals(Long.valueOf(8), verificadorSomenteNumeros.score);
     }
 }

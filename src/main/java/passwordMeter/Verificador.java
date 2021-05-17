@@ -15,6 +15,9 @@ public abstract class Verificador {
     public boolean scoreFoiCalculado(){
         return score != null;
     }
+
+    //public abstract ResultadoDeAnalise obterResultadoDeAnalise();
+
 }
 
 

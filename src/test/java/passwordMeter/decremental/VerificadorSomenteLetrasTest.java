@@ -18,6 +18,6 @@ class VerificadorSomenteLetrasTest {
     @Test
     void verificar() {
         verificadorSomenteLetras.verificar();
-        assertEquals(0, verificadorSomenteLetras.score);
+        assertEquals(Long.valueOf(0), verificadorSomenteLetras.score);
     }
 }

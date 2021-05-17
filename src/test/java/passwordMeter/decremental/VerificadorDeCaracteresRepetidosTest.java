@@ -18,7 +18,7 @@ class VerificadorDeCaracteresRepetidosTest {
     @Test
     void verificar() {
         verificador.verificar();
-        assertEquals(21, verificador.score);
+        assertEquals(Long.valueOf(21), verificador.score);
     }
 
 }

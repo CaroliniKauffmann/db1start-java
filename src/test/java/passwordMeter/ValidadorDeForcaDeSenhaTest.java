@@ -18,5 +18,7 @@ class ValidadorDeForcaDeSenhaTest {
     void verificar() {
         validadorDeForcaDeSenha.verificar();
         assertEquals(56, validadorDeForcaDeSenha.getForcaDaSenha());
+
     }
+
 }

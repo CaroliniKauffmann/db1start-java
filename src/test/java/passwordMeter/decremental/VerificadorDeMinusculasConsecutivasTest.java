@@ -19,6 +19,6 @@ class VerificadorDeMinusculasConsecutivasTest {
     @Test
     void verificar() {
         verificadorDeMinusculasConsecutivas.verificar();
-        assertEquals(10, verificadorDeMinusculasConsecutivas.score);
+        assertEquals(Long.valueOf(6), verificadorDeMinusculasConsecutivas.score);
     }
 }
