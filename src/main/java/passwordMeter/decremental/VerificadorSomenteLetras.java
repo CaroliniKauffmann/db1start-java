@@ -1,5 +1,6 @@
 package passwordMeter.decremental;
 
+import passwordMeter.ComparadorRegex;
 import passwordMeter.TipoDeOperacao;
 import passwordMeter.Verificador;
 
@@ -23,11 +24,9 @@ public class VerificadorSomenteLetras extends Verificador {
     @Override
     public long obterContagem() {
         String regexLetras = "([^A-Za-z])";
-        Pattern padrao = Pattern.compile(regexLetras);
-        Matcher comparador = padrao.matcher(senha);
-        long count = comparador.results().count();
+        ComparadorRegex comparadorRegex = new ComparadorRegex(regexLetras, senha);
 
-        if (count >  0) {
+        if (comparadorRegex.obterContagem() >  0) {
             return 0;
         }
         return senha.length();

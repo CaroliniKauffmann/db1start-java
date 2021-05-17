@@ -1,5 +1,6 @@
 package passwordMeter.decremental;
 
+import passwordMeter.ComparadorRegex;
 import passwordMeter.TipoDeOperacao;
 import passwordMeter.Verificador;
 
@@ -23,15 +24,12 @@ public class VerificadorSomenteNumeros extends Verificador {
     @Override
     public long obterContagem() {
         String regexNumeros = "([^0-9])";
-        Pattern padrao = Pattern.compile(regexNumeros);
-        Matcher comparador = padrao.matcher(senha);
-        long count = comparador.results().count();
+        ComparadorRegex comparadorRegex = new ComparadorRegex(regexNumeros, senha);
 
-        if (count >  0) {
+        if (comparadorRegex.obterContagem() >  0) {
             return 0;
         }
-        long length = senha.length();
-        return length;
+        return senha.length();
     }
 
     @Override

@@ -1,5 +1,6 @@
 package passwordMeter.incremental;
 
+import passwordMeter.ComparadorRegex;
 import passwordMeter.TipoDeOperacao;
 import passwordMeter.Verificador;
 
@@ -24,10 +25,8 @@ public class VerificadorDeMinusculas extends Verificador {
 
     public long obterContagem() {
         String regexMinuscula = "([a-z])";
-        Pattern padrao = Pattern.compile(regexMinuscula);
-        Matcher comparador = padrao.matcher(senha);
-        long count = comparador.results().count();
-        return count;
+        ComparadorRegex comparadorRegex = new ComparadorRegex(regexMinuscula, senha);
+        return comparadorRegex.obterContagem();
     }
 
     @Override

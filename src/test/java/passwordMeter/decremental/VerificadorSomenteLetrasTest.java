@@ -20,8 +20,4 @@ class VerificadorSomenteLetrasTest {
         verificadorSomenteLetras.verificar();
         assertEquals(0, verificadorSomenteLetras.score);
     }
-
-    @Test
-    void obterContagem() {
-    }
 }
