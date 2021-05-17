@@ -114,4 +114,8 @@ public class VerificadorDeCaracteresRepetidos extends Verificador {
     public TipoDeOperacao obterTipoDeOperacao() {
         return TipoDeOperacao.DECREMENTADOR;
     }
+
+    public TipoRequisito obterTipoRequisito(){
+        return TipoRequisito.NAO_REQUERIDO;
+    }
 }

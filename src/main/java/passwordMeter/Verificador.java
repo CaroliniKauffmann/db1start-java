@@ -11,6 +11,7 @@ public abstract class Verificador {
     public abstract void verificar();
     public abstract long obterContagem();
     public abstract TipoDeOperacao obterTipoDeOperacao();
+    public abstract TipoRequisito obterTipoRequisito();
 
     public boolean scoreFoiCalculado(){
         return score != null;

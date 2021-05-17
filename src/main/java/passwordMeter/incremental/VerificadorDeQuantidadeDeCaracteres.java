@@ -40,4 +40,8 @@ public class VerificadorDeQuantidadeDeCaracteres extends Verificador {
     public TipoDeOperacao obterTipoDeOperacao() {
         return TipoDeOperacao.INCREMENTADOR;
     }
+
+    public TipoRequisito obterTipoRequisito(){
+        return TipoRequisito.NAO_REQUERIDO;
+    }
 }

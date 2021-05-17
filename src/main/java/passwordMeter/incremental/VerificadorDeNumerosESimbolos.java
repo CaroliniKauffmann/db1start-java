@@ -49,4 +49,8 @@ public class VerificadorDeNumerosESimbolos extends Verificador {
         return TipoDeOperacao.INCREMENTADOR;
     }
 
+    public TipoRequisito obterTipoRequisito(){
+        return TipoRequisito.NAO_REQUERIDO;
+    }
+
 }

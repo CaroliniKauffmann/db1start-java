@@ -69,4 +69,16 @@ public class ValidadorDeForcaDeSenha {
         }
         return "Muito Fraco";
     }
+
+    public boolean atendeRequisitos(){
+
+        Verificador verificadorQuantidade = new VerificadorDeQuantidadeDeCaracteres(senha);
+        verificadorQuantidade.verificar();
+
+        return verificadorQuantidade.obterContagem() >= 8 && verificadores
+            .stream()
+            .filter(verificador -> verificador.obterTipoRequisito() == TipoRequisito.REQUERIDO)
+            .filter(verificador -> verificador.obterResultadoDeAnalise().getSuficiencia() != Suficiencia.FALHA)
+            .count() > 3;
+    }
 }
